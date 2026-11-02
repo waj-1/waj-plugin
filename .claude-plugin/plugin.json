@@ -9,6 +9,9 @@
     "url": "https://waj.ai"
   },
   "homepage": "https://waj.ai",
+  "repository": "https://github.com/waj-1/waj-plugin",
+  "documentationUrl": "https://waj.ai/docs/ai-features/ai-connectors",
+  "supportUrl": "https://waj.ai/support",
   "license": "MIT",
   "keywords": [
     "salon",
@@ -20,5 +23,6 @@
     "sales",
     "business management"
   ],
-  "privacyPolicyUrl": "https://waj.ai/privacy-policy"
+  "privacyPolicyUrl": "https://waj.ai/privacy-policy",
+  "termsOfServiceUrl": "https://waj.ai/terms"
 }
