@@ -1,0 +1,17 @@
+{
+  "name": "waj",
+  "owner": {
+    "name": "WAJ",
+    "email": "support@waj.ai"
+  },
+  "metadata": {
+    "description": "WAJ's plugin for Claude: the WAJ connector for salons, spas and clinics, with business-analysis skills."
+  },
+  "plugins": [
+    {
+      "name": "waj",
+      "source": "./",
+      "description": "Run your salon or spa from Claude: bookings, clients, staff, services, marketing and reports in WAJ, with skills for sales, staff, trend, retention and stock analysis."
+    }
+  ]
+}

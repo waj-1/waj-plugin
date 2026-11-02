@@ -1,0 +1,24 @@
+{
+  "name": "waj",
+  "displayName": "WAJ",
+  "version": "1.1.0",
+  "description": "Run your salon or spa from Claude: bookings, clients, staff, services, marketing and reports in WAJ, with skills for sales, staff, trend, retention and stock analysis.",
+  "author": {
+    "name": "WAJ",
+    "email": "support@waj.ai",
+    "url": "https://waj.ai"
+  },
+  "homepage": "https://waj.ai",
+  "license": "MIT",
+  "keywords": [
+    "salon",
+    "spa",
+    "bookings",
+    "appointments",
+    "clients",
+    "staff",
+    "sales",
+    "business management"
+  ],
+  "privacyPolicyUrl": "https://waj.ai/privacy-policy"
+}

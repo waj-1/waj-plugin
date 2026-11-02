@@ -1,0 +1,117 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "waj",
+  "version": "1.1.0",
+  "description": "Run your salon or spa from ChatGPT: bookings, clients, staff, services, marketing and reports in WAJ, with skills for sales, staff, trend, retention and stock analysis.",
+  "author": {
+    "name": "WAJ",
+    "email": "support@waj.ai",
+    "url": "https://waj.ai"
+  },
+  "homepage": "https://waj.ai",
+  "keywords": [
+    "salon",
+    "spa",
+    "bookings",
+    "appointments",
+    "clients",
+    "staff",
+    "business management"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "WAJ",
+        "shortDescription": "Manage your salon or spa",
+        "longDescription": "WAJ is business management software for salons, spas and barbershops. Connect your WAJ account to ask about your business and make changes in plain language.\n\n- See today's bookings, a staff member's schedule, or any date range, and find free slots.\n- Ask how revenue, services, staff and client retention are performing, and export the rows to CSV.\n- Find clients, spot duplicates and merge them, and import clients or leads from a spreadsheet.\n- Create and update services, categories, packages and membership plans.\n- Set working hours, block time and add time off for your team.\n- Follow up leads, build client audiences and set up marketing workflows.\n\nBuilt-in skills turn those figures into reviews you can act on: a sales analysis against the previous period, a staff performance review, current trends across recent weeks, a daily briefing, client retention and win-back, and a stock check with what to reorder.\n\nYou connect as yourself, and your WAJ role decides what ChatGPT can see and do. When you connect, you choose read-only access or read and make changes. Bulk or customer-facing changes, such as messaging many clients or switching on a workflow, wait for your approval in the WAJ app before anything happens. You can disconnect ChatGPT at any time from Settings → AI connectors in WAJ.\n\nRequires a WAJ business account with AI connectors switched on by the owner.",
+        "developerName": "WAJ",
+        "category": "Business & Operations",
+        "capabilities": [
+          "Bookings and staff schedules",
+          "Sales analysis against the previous period",
+          "Staff performance and retention reviews",
+          "Business trends and daily briefings",
+          "Client management, duplicates and win-back",
+          "Stock levels and reorder checks"
+        ],
+        "websiteURL": "https://waj.ai",
+        "supportURL": "https://waj.ai/support",
+        "privacyPolicyURL": "https://waj.ai/privacy-policy",
+        "termsOfServiceURL": "https://waj.ai/terms",
+        "defaultPrompt": [
+          "Analyze our sales for the last 30 days against the 30 days before.",
+          "What's trending in the business over the last 8 weeks?",
+          "Give me today's briefing."
+        ],
+        "brandColor": "#004E4D",
+        "brandColorDark": "#5FB3A5",
+        "composerIcon": "./assets/icon.png",
+        "composerIconDark": "./assets/icon-dark.png",
+        "logo": "./assets/logo.png",
+        "logoDark": "./assets/logo-dark.png"
+      },
+      "review": {
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Revenue for the last week",
+              "prompt": "How much revenue did we make in the last 7 days, and which services sold the most?",
+              "tools_triggered": "get_business_performance, get_services",
+              "expected_behavior": "Returns Elegance's revenue for the last 7 days in AED, split into service sales, product sales, discounts and VAT, and lists the best-selling services by bookings (for example Creative Director Cut)."
+            },
+            {
+              "description": "Tomorrow's bookings and staff",
+              "prompt": "What's booked tomorrow and who is working?",
+              "tools_triggered": "get_bookings, get_staff_schedule",
+              "expected_behavior": "Lists tomorrow's bookings with time, client, service and staff member, and the staff scheduled to work with their hours."
+            },
+            {
+              "description": "Find duplicate clients",
+              "prompt": "Do I have any duplicate client profiles?",
+              "tools_triggered": "find_duplicate_clients",
+              "expected_behavior": "Lists groups of client profiles that share a phone number or email (Elegance has two 'Sufyan test' profiles on one phone), with each profile's bookings and spend. Nothing is merged."
+            },
+            {
+              "description": "Block time for a staff member, then remove it",
+              "prompt": "Block James Miller's calendar tomorrow from 2pm to 3pm for a training session.",
+              "tools_triggered": "block_time, remove_block",
+              "expected_behavior": "ChatGPT asks for confirmation before the write, then the one-hour block is saved and the reply confirms the staff member, date, time and title. Asking 'Remove that block' afterwards asks again and deletes it."
+            },
+            {
+              "description": "Open leads by stage",
+              "prompt": "Show my open leads by stage and their expected value.",
+              "tools_triggered": "get_leads_overview",
+              "expected_behavior": "Shows Elegance's open leads grouped by stage (New, Qualified, Proposition) with the count and expected value per stage and the total in AED."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Money transfer is not supported",
+              "prompt": "Transfer AED 500 from the business account to my personal bank account."
+            },
+            {
+              "description": "Refunds are not supported",
+              "prompt": "Refund the last sale back to the client's card."
+            },
+            {
+              "description": "Data outside the connected business",
+              "prompt": "Show me today's bookings at Glamour Lounge, the salon across the street."
+            }
+          ]
+        },
+        "commerce": false,
+        "commerce_description": "WAJ does not sell products or process payments in ChatGPT. It reads and updates the connected business's own records."
+      },
+      "publication": {
+        "release_notes": "Adds six skills: sales analysis, staff performance, business trends, daily briefing, client retention and stock check.",
+        "translations": {
+          "ar-AE": {
+            "subtitle": "أدِر صالونك أو السبا",
+            "description": "وَج برنامج لإدارة الصالونات والسبا ومحلات الحلاقة. اربط حسابك في وَج لتسأل عن عملك وتجري التعديلات بلغة عادية.\n\n- اطّلع على حجوزات اليوم وجدول أي موظف أو أي فترة، وابحث عن المواعيد المتاحة.\n- اسأل عن أداء الإيرادات والخدمات والموظفين ورجوع العملاء، وصدّر النتائج إلى ملف CSV.\n- ابحث عن العملاء واكتشف الملفات المكررة وادمجها، واستورد العملاء أو العملاء المحتملين من جدول بيانات.\n- أنشئ الخدمات والفئات والباقات والعضويات وعدّلها.\n- حدّد ساعات العمل واحجز أوقاتاً وأضف الإجازات لفريقك.\n- تابع العملاء المحتملين وأنشئ شرائح العملاء وسير العمل التسويقي.\n\nتتصل بحسابك أنت، ودورك في وَج يحدد ما يمكن لـ ChatGPT رؤيته وفعله. عند الربط تختار الوصول للقراءة فقط أو القراءة والتعديل. التغييرات الجماعية أو التي تصل إلى العملاء، مثل مراسلة عدد كبير من العملاء أو تشغيل سير عمل، تنتظر موافقتك في تطبيق وَج قبل أن يحدث أي شيء. يمكنك فصل ChatGPT في أي وقت من الإعدادات ← موصلات الذكاء الاصطناعي في وَج.\n\nيتطلب حساب أعمال في وَج مع تفعيل موصلات الذكاء الاصطناعي من قبل المالك."
+          }
+        }
+      }
+    }
+  },
+  "license": "MIT"
+}
