@@ -66,3 +66,10 @@ disconnect at any time from Settings → AI connectors in WAJ.
 - Privacy policy: https://waj.ai/privacy-policy
 - Terms: https://waj.ai/terms
 - Support: https://waj.ai/support or support@waj.ai
+
+## Also from WAJ
+
+[WAJ AI Engine](https://github.com/waj-1/ai-engine) is the open-source,
+self-hosted agent platform behind WAJ's AI: build, test and ship your own
+agents from a portal or from your AI assistant over MCP. Apache-2.0.
+[Try the live demo](https://engine-demo.waj.ai).
